@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <title>Weather Detector</title>
+</head>
+
+<body>
+    <div class="header">
+        <h2> Weather Detector App</h2>
+    </div>
+    <main>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <label for="search" id="search">Enter a City</label>
+            <input type="text" name="city" id="search" placeholder="Enter a City Name">
+            <button type="submit">Search</button>
+        </form>
+        {% if country_code %}
+        <h3>City name: {{name}}</h3>
+        <h3>Country code: {{country_code}}</h3>
+        <h3>Weather: {{weather}}</h3>
+        <h3>Coordinate: {{coordinate}}</h3>
+        <h3>Temperature: {{temp}}</h3>
+        <h3>Pressure: {{pressure}}</h3>
+        <h3>Humidity: {{humidity}}</h3>
+        {% endif %}
+    </main>
+</body>
+
+</html>
